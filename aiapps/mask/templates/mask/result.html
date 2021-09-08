@@ -1,0 +1,35 @@
+{% extends 'mask/base.html' %}
+{% block title %}マスク判別結果{% endblock %}
+
+{% block content %}
+<div class="container" style=" padding: 10px 80px; min-width: 700px; margin: 0 auto;">
+    <h4 class="mt-4 mb-5 border-bottom">マスク判別結果</h4>
+    
+    <table align="center" class='table'>
+        <tbody>
+            <tr align="center">
+                <td>ファイル名</td>
+                <td>{{ photo_name }}</td>
+            </tr>
+            <tr align="center">
+                <td>画像ファイル</td>
+                <td><img class='preview-img' src={{ photo_data }} ></img></td>
+                </tr>
+            <tr align="center">
+                <td>この画像は</td>
+                <td style="font-size: 20pt;">{{ predicted }}</td>
+                <td>です！</td>
+            </tr>
+            <tr align="center">
+                <td>推定確率は</td>
+                <td style="font-size: 15pt;">{{ percentage }} %</td>
+                <td>です！</td>
+            </tr>
+        </tbody>
+    </table>
+    <div align="center">
+    <a href = "{% url 'mask:index' %}" style="font-size: 15pt;" class="btn btn-primary mt-6 mb-3">画像選択メニューに戻る</a>
+    </div>
+
+</div>
+{% endblock %}
